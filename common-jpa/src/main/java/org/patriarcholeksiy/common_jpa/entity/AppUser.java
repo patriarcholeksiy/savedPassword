@@ -3,6 +3,8 @@ package org.patriarcholeksiy.common_jpa.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @EqualsAndHashCode(exclude = "id")
@@ -20,6 +22,9 @@ public class AppUser {
     @Column(unique = true)
     private String login;
 
-    private String password;
+    private String userPassword;
+
+    @OneToMany
+    private List<Password> savedPasswords;
 
 }
